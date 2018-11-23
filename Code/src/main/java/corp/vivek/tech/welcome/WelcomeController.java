@@ -1,4 +1,4 @@
-package corp.vivek.tech;
+package corp.vivek.tech.welcome;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 //  Web layer in Spring boot usings Spring framework called Spring MVC, child project of Spring Framework
 //  lets you build server side code that maps url args with class and provide responses which is then handled
 @RestController
-public class welcome {
+public class WelcomeController {
 
     /**
      * Welcome class to display a welcome message
