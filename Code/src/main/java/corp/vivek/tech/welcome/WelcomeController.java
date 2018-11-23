@@ -23,8 +23,8 @@ public class WelcomeController {
      *
      * @return welcome string message
      */
-    // Request Mapping helps to map url arg with the class.
-    //  By default, it takes get http method; can add any types of http method to handle (get, post, put, delete, etc)
+     // @RestController to make the class use Spring MVC
+     // @RequestMapping helps to map the url args using http methods (get, post, put, update, delete) to get the class's response and display in the web
     @RequestMapping("/welcome")
     public String welcome() {
         return "Hello Spring Boot World! Looking forward to do amazing things with you! yours, keviv";
