@@ -8,5 +8,27 @@
     <artifactId>course-api-springboot-appln</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <!-- maven project that has course-api-springboot-appln as child with spring-boot-starter-parent as parent
+           this is done to inherit all default maven config from spring boot starter parent
+             as spring boot provides few default configuration out of box -->
+    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.5.RELEASE</version>
+    </parent>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
 
 </project>
