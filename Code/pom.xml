@@ -9,8 +9,13 @@
     <version>1.0-SNAPSHOT</version>
 
     <!-- maven project that has course-api-springboot-appln as child with spring-boot-starter-parent as parent
-           this is done to inherit all default maven config from spring boot starter parent
-             as spring boot provides few default configuration out of box -->
+           this is done to inherit desired dependency using spring boot starter parent config = BILL OF MATERIALS -->
+    <!-- Bill Of Materials - preset list of possible combinations of jars that work well without issues
+          concept where dependency versions management
+          for example, if you change the version of parent, the versions of dependencies changes meaning
+           jars will not change; jar's version will change. This really helps to not worry much about configuring
+           each individual dependency jar file versions as the parent will take care of everything.
+    -->
     <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
     <parent>
         <groupId>org.springframework.boot</groupId>
