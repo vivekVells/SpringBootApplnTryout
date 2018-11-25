@@ -4,9 +4,8 @@
 package corp.vivek.tech.course;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Arrays;
 
@@ -28,6 +27,7 @@ public class CourseController {
      *
      * @return list of courselist objects
      */
+    // get method implementation
     @RequestMapping("/courses")
     public List<Courses> getAllCourses() {
         // Spring MVC converts Courses Objects List into JSON automatically and returns JSON response
@@ -36,6 +36,12 @@ public class CourseController {
         return courseService.getAllCourses();
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
+    // get method
     // @PathVariable being used to make getCourse get id_query value as parameter variable arg
     //  2 ways to use @PathVariable
     //   @RequestMapping("/courses/{id_query}) => when using like this you have to map in @PathVariable("id_query")
@@ -44,7 +50,81 @@ public class CourseController {
     public Courses getCourse(@PathVariable String id) {
         return courseService.getCourse(id);
     }
+
+    /**
+     *
+     * @param course
+     */
+    // post http implementation
+    // by default method would be RequestMethod.GET
+    // Request body helps to bind the sent params in url to the course instance
+    @RequestMapping(method = RequestMethod.POST, value = "/courses")
+    public void addCourse(@RequestBody Courses course) {
+        courseService.addCourse(course);
+    }
 }
+
+/*
+Output for post action:
+> In postman, when navigated to GET=> http://localhost:8080/courses output:
+[
+    {
+        "id": "java",
+        "name": "Java Course",
+        "description": "java description"
+    },
+    {
+        "id": "python",
+        "name": "Python Course",
+        "description": "python description"
+    },
+    {
+        "id": "ruby",
+        "name": "Ruby Course",
+        "description": "ruby description"
+    }
+]
+> In postman, did POST => http://localhost:8080/courses with
+   Headers => Content-Type as application/JSON
+   Body => raw body as
+   {
+    "id": "Spring",
+    "name": "Spring Course",
+    "description": "Spring description"
+   }
+> after doing above, In postman, when navigated to GET=> http://localhost:8080/courses output:
+[
+    {
+        "id": "java",
+        "name": "Java Course",
+        "description": "java description"
+    },
+    {
+        "id": "python",
+        "name": "Python Course",
+        "description": "python description"
+    },
+    {
+        "id": "ruby",
+        "name": "Ruby Course",
+        "description": "ruby description"
+    },
+    {
+        "id": "Spring",
+        "name": "Spring Course",
+        "description": "Spring description"
+    }
+]
+
+> in console log:\
+2018-11-24 19:48:32.472  INFO 8032 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-11-24 19:48:32.542  INFO 8032 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-11-24 19:48:32.542  INFO 8032 --- [           main] corp.vivek.tech.CourseApp                : Started CourseApp in 3.417 seconds (JVM running for 6.207)
+2018-11-24 19:48:33.104  INFO 8032 --- [nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-11-24 19:48:33.107  INFO 8032 --- [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-11-24 19:48:33.169  INFO 8032 --- [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 62 ms
+
+ */
 
 /*
 Output:

@@ -5,6 +5,7 @@ package corp.vivek.tech.course;
 
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,10 +16,14 @@ import java.util.List;
 //  need to create new values again and again is avoided. only one instance is enough to manage
 @Service
 public class CourseService {
-    private List<Courses> coursesList = Arrays.asList(
-            new Courses("java", "Java Course", "java description"),
-            new Courses("python", "Python Course", "python description"),
-            new Courses("ruby", "Ruby Course", "ruby description")
+    // ArrayList is mutable
+    // Arrays.asList is immutable
+    private List<Courses> coursesList = new ArrayList<>(
+            Arrays.asList(
+                    new Courses("java", "Java Course", "java description"),
+                    new Courses("python", "Python Course", "python description"),
+                    new Courses("ruby", "Ruby Course", "ruby description")
+            )
     );
 
     public List<Courses> getAllCourses() {
@@ -35,5 +40,14 @@ public class CourseService {
 //        }
 //
 //        return null;
+    }
+
+    /**
+     * To add new course
+     *
+     * @param course
+     */
+    public void addCourse(Courses course) {
+        coursesList.add(course);
     }
 }
