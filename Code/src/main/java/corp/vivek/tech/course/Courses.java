@@ -5,10 +5,19 @@ package corp.vivek.tech.course;
 
 import corp.vivek.tech.CourseApp;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  */
+// this @Entity makes the Courses table
+@Entity
 public class Courses {
+    // by default, after adding @Entity, all the class members are considered as row
+
+    // @Id acts as primary key
+    @Id
     private String id;
     private String name;
     private String description;

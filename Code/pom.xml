@@ -54,6 +54,15 @@
             <artifactId>derby</artifactId>
             <scope>runtime</scope>
         </dependency>
+
+        <!-- http://shengwangi.blogspot.com/2014/11/how-to-simply-print-object-content-to-string.html
+         To print out all the values inside the object
+        -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.3.2</version>
+        </dependency>
     </dependencies>
 
     <properties>
