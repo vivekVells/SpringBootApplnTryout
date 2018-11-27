@@ -7,6 +7,7 @@
     <groupId>corp.vivek.tech</groupId>
     <artifactId>course-api-springboot-appln</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
     <!-- maven project that has course-api-springboot-appln as child with spring-boot-starter-parent as parent
            this is done to inherit desired dependency using spring boot starter parent config = BILL OF MATERIALS -->
@@ -62,6 +63,13 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.3.2</version>
+        </dependency>
+
+        <!-- Monitor & manage the spring boot application -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
     </dependencies>
 
